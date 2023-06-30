@@ -8,7 +8,7 @@ from clc.langchain_application import LangChainApplication
 
 # 修改成自己的配置！！！
 class LangChainCFG:
-    llm_model_name = 'THUDM/chatglm-6b-int4-qe'  # 本地模型文件 or huggingface远程仓库
+    llm_model_name = 'THUDM/chatglm2-6b-int4'  # 本地模型文件 or huggingface远程仓库
     embedding_model_name = 'GanymedeNil/text2vec-large-chinese'  # 检索模型文件 or huggingface远程仓库
     vector_store_path = './cache'
     docs_path = './docs'
@@ -107,7 +107,7 @@ def predict(input,
 with open("assets/custom.css", "r", encoding="utf-8") as f:
     customCSS = f.read()
 with gr.Blocks(css=customCSS, theme=small_and_beautiful_theme) as demo:
-    gr.Markdown("""<h1><center>Chinese-LangChain</center></h1>
+    gr.Markdown("""<h1><center>诸葛亮大语言模型数字大脑</center></h1>
         <center><font size=3>
         </center></font>
         """)
@@ -123,10 +123,10 @@ with gr.Blocks(css=customCSS, theme=small_and_beautiful_theme) as demo:
 
             large_language_model = gr.Dropdown(
                 [
-                    "ChatGLM-6B-int4",
+                    "ChatGLM2-6B-int4",
                 ],
                 label="large language model",
-                value="ChatGLM-6B-int4")
+                value="ChatGLM2-6B-int4")
 
             top_k = gr.Slider(1,
                               20,
@@ -162,17 +162,12 @@ with gr.Blocks(css=customCSS, theme=small_and_beautiful_theme) as demo:
 
         with gr.Column(scale=4):
             with gr.Row():
-                chatbot = gr.Chatbot(label='Chinese-LangChain').style(height=400)
+                chatbot = gr.Chatbot(label='卧龙凤雏俱往矣，数今朝还看大模型').style(height=700)
             with gr.Row():
                 message = gr.Textbox(label='请输入问题')
             with gr.Row():
                 clear_history = gr.Button("🧹 清除历史对话")
                 send = gr.Button("🚀 发送")
-            with gr.Row():
-                gr.Markdown("""提醒：<br>
-                                        [Chinese-LangChain](https://github.com/yanqiangmiffy/Chinese-LangChain) <br>
-                                        有任何使用问题[Github Issue区](https://github.com/yanqiangmiffy/Chinese-LangChain)进行反馈. <br>
-                                        """)
         with gr.Column(scale=2):
             search = gr.Textbox(label='搜索结果')
 
@@ -221,7 +216,7 @@ with gr.Blocks(css=customCSS, theme=small_and_beautiful_theme) as demo:
 demo.queue(concurrency_count=2).launch(
     server_name='0.0.0.0',
     server_port=8888,
-    share=False,
+    share=True,
     show_error=True,
     debug=True,
     enable_queue=True,

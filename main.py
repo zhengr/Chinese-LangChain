@@ -162,7 +162,7 @@ with gr.Blocks(css=customCSS, theme=small_and_beautiful_theme) as demo:
 
         with gr.Column(scale=4):
             with gr.Row():
-                chatbot = gr.Chatbot(label='卧龙凤雏俱往矣，数今朝还看大模型').style(height=700)
+                chatbot = gr.Chatbot(label='卧龙凤雏俱往矣，数今朝还看大模型').style(height=800)
             with gr.Row():
                 message = gr.Textbox(label='请输入问题')
             with gr.Row():

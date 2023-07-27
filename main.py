@@ -8,7 +8,7 @@ from clc.langchain_application import LangChainApplication
 
 # 修改成自己的配置！！！
 class LangChainCFG:
-    llm_model_name = 'THUDM/chatglm2-6b-int4'  # 本地模型文件 or huggingface远程仓库
+    llm_model_name = 'FlagAlpha/Llama2-Chinese-13b-Chat-4bit'  # 本地模型文件 or huggingface远程仓库
     embedding_model_name = 'GanymedeNil/text2vec-large-chinese'  # 检索模型文件 or huggingface远程仓库
     vector_store_path = './cache'
     docs_path = './docs'
